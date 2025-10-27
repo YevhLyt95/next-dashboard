@@ -9,7 +9,7 @@ import {
 } from './definitions';
 import { formatCurrency } from './utils';
 
-const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
+const sql = postgres(process.env.DATABASE_URL!, { ssl: false });
 
 export async function fetchRevenue() {
   try {
@@ -19,7 +19,7 @@ export async function fetchRevenue() {
     // console.log('Fetching revenue data...');
     // await new Promise((resolve) => setTimeout(resolve, 3000));
 
-    const data = await sql<Revenue[]>`SELECT * FROM revenue`;
+    const data = await sql<Revenue[]>`SELECT * FROM "Revenue"`;
 
     // console.log('Data fetch completed after 3 seconds.');
 
