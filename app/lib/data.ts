@@ -175,7 +175,7 @@ export async function fetchCustomers() {
       SELECT
         id,
         name
-      FROM "Customers"
+      FROM "Customer"
       ORDER BY name ASC
     `;
 
