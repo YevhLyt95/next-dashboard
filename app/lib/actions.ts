@@ -4,7 +4,7 @@ import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import postgres from 'postgres';
 
-const sql = postgres(process.env.POSTGRES_URL!);
+const sql = postgres(process.env.DATABASE_URL!, { ssl: false });
 
 const FormSchema = z.object({
     id: z.string(),
